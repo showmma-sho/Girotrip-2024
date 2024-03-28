@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for your Feedback!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card rounded-5">
+                    <div class="card-header bg-primary text-white">
+                        Thanks for your Feedback!
+                    </div>
+                    <div class="card-body">
+                        <p>Apprezziamo il tuo feedback. Reindirizzamento in <span id="countdown"></span>...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var seconds = 3; // Set the countdown duration in seconds
+        var countdown = document.getElementById('countdown');
+
+        function updateCountdown() {
+            countdown.textContent = seconds + ' second' + (seconds === 1 ? '' : 's');
+            if (seconds <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = 'home.php'; // Redirect to the home page
+            }
+            seconds--;
+        }
+
+        updateCountdown();
+        var countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
